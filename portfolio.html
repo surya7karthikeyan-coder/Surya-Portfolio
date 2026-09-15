@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surya | Java Full Stack Developer</title>
+
+    <!-- CSS -->
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0d1117;
+    color:#fff;
+}
+
+/* Header */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px 10%;
+    background:#111827;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:100;
+    box-shadow:0 5px 20px rgba(0,0,0,.4);
+}
+
+.logo{
+    color:#00f7ff;
+    text-decoration:none;
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#00f7ff;
+}
+
+.menu{
+    display:none;
+}
+
+/* Sections */
+
+section{
+    min-height:100vh;
+    padding:100px 10%;
+}
+
+/* Home */
+
+.home{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.home-content{
+    max-width:600px;
+}
+
+.home h1{
+    font-size:60px;
+    color:#00f7ff;
+}
+
+.home h2{
+    margin:15px 0;
+}
+
+.home p{
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.home-image img{
+    width:350px;
+    border-radius:20%;
+    border:5px solid #00f7ff;
+    box-shadow:0 0 40px #00f7ff;
+    
+}
+
+.home-image :hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px #00f7ff;
+    transform: translateY(-5px);
+}
+/* Button */
+
+.btn{
+    display:inline-block;
+    padding:12px 35px;
+    background:#00f7ff;
+    color:#111;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.4s;
+}
+
+.btn:hover{
+    box-shadow:0 0 25px #00f7ff;
+    transform:translateY(-5px);
+}
+
+/* Social */
+
+.social{
+    margin:25px 0;
+}
+
+.social a{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:45px;
+    height:45px;
+    border:2px solid #00f7ff;
+    border-radius:50%;
+    color:#00f7ff;
+    text-decoration:none;
+    margin-right:10px;
+    transition:.4s;
+}
+
+.social a:hover{
+    background:#00f7ff;
+    color:black;
+}
+
+/* About */
+
+.about{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:60px;
+    flex-wrap:wrap;
+}
+
+.about img{
+    width:320px;
+    border-radius:20px;
+}
+
+.about h2,
+.skills h2,
+.projects h2,
+.contact h2{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:40px;
+}
+
+span{
+    color:#00f7ff;
+}
+
+/* Skills */
+
+.skill-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#161b22;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px #00f7ff;
+}
+
+.card i{
+    font-size:55px;
+    color:#00f7ff;
+    margin-bottom:15px;
+}
+
+/* Projects */
+
+.project-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.project-card{
+    background:#161b22;
+    border-radius:20px;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.project-card:hover{
+    transform:scale(1.05);
+}
+
+.project-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.project-card h3{
+    padding:15px;
+}
+
+.project-card p{
+    padding:0 15px 20px;
+}
+
+/* Contact */
+
+form{
+    max-width:700px;
+    margin:auto;
+}
+
+form input,
+form textarea{
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    background:#1f2937;
+    color:white;
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:25px;
+    background:#111827;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.home{
+    flex-direction:column-reverse;
+    text-align:center;
+}
+
+.home-image img{
+    width:250px;
+    margin-bottom:40px;
+}
+
+.about{
+    flex-direction:column;
+    text-align:center;
+}
+
+nav{
+    display:none;
+}
+
+.menu{
+    display:block;
+    font-size:30px;
+    color:white;
+}
+
+}
+
+/* CONTACT */
+
+.contact{
+    background:#0d1117;
+}
+
+.contact-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.contact-info h3{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.contact-info p{
+    line-height:1.8;
+    margin-bottom:10px;
+    color:#c9d1d9;
+}
+
+.contact-details{
+    margin-top:20px;
+}
+
+.contact-details p{
+    margin:15px 0;
+    font-size:18px;
+}
+
+.contact-details i{
+    color:#00f7ff;
+    margin-right:12px;
+}
+
+.social-icons{
+    margin-top:25px;
+}
+
+.social-icons a{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:50px;
+    height:50px;
+    border:2px solid #00f7ff;
+    border-radius:50%;
+    text-decoration:none;
+    color:#00f7ff;
+    margin-right:15px;
+    transition:.4s;
+    font-size:22px;
+}
+
+.social-icons a:hover{
+    background:#00f7ff;
+    color:#111;
+    transform:translateY(-8px);
+    box-shadow:0 0 20px #00f7ff;
+}
+
+.contact form input,
+.contact form textarea{
+    width:100%;
+    padding:15px;
+    margin:12px 0;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    background:#1f2937;
+    color:#fff;
+    font-size:16px;
+}
+
+.contact form textarea{
+    resize:none;
+}
+
+.contact form .btn{
+    width:100%;
+    cursor:pointer;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.contact-container{
+    grid-template-columns:1fr;
+}
+
+}
+    </style>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header>
+    <a href="#" class="logo">SURYA Portfolio</a>
+
+    <nav>
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <i class="fa-solid fa-bars menu"></i>
+</header>
+
+<!-- ================= HOME ================= -->
+
+<section class="home" id="home">
+
+    <div class="home-content">
+
+        <h3>Hello, It's Me</h3>
+
+        <h1>Surya</h1>
+
+        <h2>I'm a <span id="typing"></span></h2>
+
+        <p>
+            Passionate Java Full Stack Developer with knowledge of
+            HTML, CSS, JavaScript, Bootstrap, Java and SQL.
+            I enjoy building responsive websites and learning
+            modern technologies.
+        </p>
+
+        <div class="social">
+
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+
+            <a href="#"><i class="fab fa-github"></i></a>
+
+            <a href="#"><i class="fab fa-instagram"></i></a>
+
+            <a href="#"><i class="fas fa-envelope"></i></a>
+
+        </div>
+
+        <a href="#" class="btn">Download Resume</a>
+
+    </div>
+
+    <div class="home-image">
+
+        <img src="mypic.jpeg" alt="Surya">
+
+    </div>
+
+</section>
+
+<h2 style="text-align: center;">About <span>Me</span></h2>
+
+<p style="text-align: center;">
+
+I'm a Java Full Stack Developer with a strong passion
+for web development and software engineering.
+
+I enjoy creating attractive websites and continuously
+improving my programming skills through projects.
+</p>
+
+</div>
+
+</section>
+
+<!-- ================= SKILLS ================= -->
+
+<section class="skills" id="skills">
+
+<h2>My <span>Skills</span></h2>
+
+<div class="skill-container">
+
+<div class="card">
+
+<i class="fa-brands fa-html5"></i>
+
+<h3>HTML</h3>
+
+</div>
+
+<div class="card">
+
+<i class="fa-brands fa-css3-alt"></i>
+
+<h3>CSS</h3>
+
+</div>
+
+<div class="card">
+
+<i class="fa-brands fa-js"></i>
+
+<h3>JavaScript</h3>
+
+</div>
+
+<div class="card">
+
+<i class="fa-brands fa-bootstrap"></i>
+
+<h3>Bootstrap</h3>
+
+</div>
+
+<div class="card">
+
+<i class="fa-brands fa-java"></i>
+
+<h3>Java</h3>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-database"></i>
+
+<h3>SQL</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= PROJECTS ================= -->
+
+<section class="projects" id="projects">
+
+<h2>My <span>Projects</span></h2>
+
+<div class="project-container">
+
+<div class="project-card">
+
+<img src="images/project1.jpg">
+
+<h3>Portfolio Website</h3>
+
+<p>Responsive portfolio using HTML, CSS & JavaScript.</p>
+
+</div>
+
+<div class="project-card">
+
+<img src="images/project2.jpg">
+
+<h3>Weather App</h3>
+
+<p>Weather application using JavaScript API.</p>
+
+</div>
+
+<div class="project-card">
+
+<img src="images/project3.jpg">
+
+<h3>E-Commerce UI</h3>
+
+<p>Modern shopping website interface.</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<script>
+
+   // ===== Typing Effect =====
+
+const words = [
+    "Java Full Stack Developer",
+    "Frontend Developer",
+    "Web Designer",
+    "Java Programmer"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+const typing = document.getElementById("typing");
+
+function typeEffect() {
+
+    const currentWord = words[wordIndex];
+
+    if (!isDeleting) {
+        typing.textContent = currentWord.substring(0, charIndex++);
+    } else {
+        typing.textContent = currentWord.substring(0, charIndex--);
+    }
+
+    let speed = isDeleting ? 80 : 150;
+
+    if (!isDeleting && charIndex === currentWord.length + 1) {
+        isDeleting = true;
+        speed = 1500;
+    }
+
+    if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+    }
+
+    setTimeout(typeEffect, speed);
+}
+
+typeEffect();
+
+
+// ===== Mobile Menu =====
+
+const menu = document.querySelector(".menu");
+const nav = document.querySelector("nav");
+
+menu.onclick = () => {
+    nav.classList.toggle("show");
+};
+
+
+// ===== Active Navbar =====
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.onscroll = () => {
+
+    let top = window.scrollY;
+
+    sections.forEach(sec => {
+
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute("id");
+
+        if (top >= offset && top < offset + height) {
+
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+            });
+
+            document.querySelector("nav a[href*=" + id + "]")
+                .classList.add("active");
+        }
+
+    });
+
+};
+
+
+// ===== Contact Form =====
+
+const form = document.querySelector("form");
+
+form.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    alert("Thank you! Your message has been sent successfully.");
+
+    form.reset();
+
+});
+
+
+// ===== Reveal Animation =====
+
+const revealElements = document.querySelectorAll(
+".card,.project-card,.about,.contact,.home-content,.home-image");
+
+window.addEventListener("scroll", reveal);
+
+function reveal(){
+
+    let windowHeight = window.innerHeight;
+
+    revealElements.forEach(item=>{
+
+        let top = item.getBoundingClientRect().top;
+
+        if(top < windowHeight - 100){
+            item.classList.add("active");
+        }
+
+    });
+
+}
+
+reveal();
+
+</script>
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+    <h2 class="heading">Contact <span>Me</span></h2>
+
+    <div class="contact-container">
+
+        <div class="contact-info">
+
+            <h3>Let's Work Together</h3>
+
+            <p>
+                I'm currently looking for Java Full Stack Developer
+                opportunities. Feel free to contact me for jobs,
+                freelance projects, or collaborations.
+            </p>
+
+            <div class="contact-details">
+
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    suryasurya8468@gmail.com
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    +91 7550189234
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Chennai, Tamil Nadu, India
+                </p>
+
+            </div>
+
+            <div class="social-icons">
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/YOUR-LINKEDIN"
+                   target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/YOUR-GITHUB"
+                   target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/YOUR-INSTAGRAM"
+                   target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/917550189234"
+                   target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+                <!-- Facebook -->
+                <a href="https://facebook.com/YOUR-FACEBOOK"
+                   target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+        <form action="#">
+
+            <input type="text"
+                   placeholder="Your Name"
+                   required>
+
+            <input type="email"
+                   placeholder="Your Email"
+                   required>
+
+            <input type="text"
+                   placeholder="Subject">
+
+            <textarea
+                rows="8"
+                placeholder="Your Message"
+                required>
+            </textarea>
+
+            <button type="submit" class="btn">
+                Send Message
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<p>© 2026 Surya | All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>
